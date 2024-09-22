@@ -7,10 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>🌼 Yellow Flowers 🌼</title>
+  <h2 class="floating-title-up">¡Feliz día del AMOR y la amistad!</h2>
+  <h2 class="floating-title-bottom">@soycamiloypunto</h2>
 </head>
 
 
 <body class="not-loaded">
+
+  <div class="icon-container"></div>
+    <div class="icon star">★</div>
+    <div class="icon heart">❤</div>
+  </div>
+  
   <div class="flowers">
     <div class="flower flower--1">
       <div class="flower__leafs flower__leafs--1">
@@ -19,6 +27,7 @@
         <div class="flower__leaf flower__leaf--3"></div>
         <div class="flower__leaf flower__leaf--4"></div>
         <div class="flower__white-circle"></div>
+        
 
         <div class="flower__light flower__light--1"></div>
         <div class="flower__light flower__light--2"></div>
@@ -313,11 +322,7 @@
   </audio>
 
   <script>
-    document.body.addEventListener('click', function () {
-      var audio = document.getElementById('myAudio');
-      audio.volume = 0.1;
-      audio.play(); 
-    });
+    
   
     document.addEventListener('visibilitychange', function() {
       var audio = document.getElementById('myAudio');
@@ -334,6 +339,23 @@
         clearTimeout(c);
       }, 1000);
     };
+
+    const icons = [];
+    const numIcons = 20; // Número de iconos (estrellas y corazones)
+    const body = document.body;
+
+    // Crear iconos intercalando estrellas y corazones
+    for (let i = 0; i < numIcons; i++) {
+      const icon = document.createElement('div');
+      icon.classList.add('icon');
+      icon.classList.add(i % 2 === 0 ? 'star' : 'heart'); // Alternar entre estrella y corazón
+      icon.textContent = i % 2 === 0 ? '★' : '❤'; // Asignar el símbolo
+      icon.style.top = Math.random() * 100 + 'vh'; // Posición vertical aleatoria
+      icon.style.left = Math.random() * 100 + 'vw'; // Posición horizontal aleatoria
+      icon.style.animationDelay = Math.random() * 4 + 's'; // Retardo aleatorio para cada icono
+      body.appendChild(icon);
+      icons.push(icon);
+    }
   </script>
 </body>
 

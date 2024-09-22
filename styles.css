@@ -1601,3 +1601,58 @@ body {
     -webkit-animation-play-state: paused !important;
     animation-play-state: paused !important;
 }
+
+.icon {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    animation: fadeInOut 4s infinite;
+  }
+
+  .star {
+    color: gold;
+  }
+
+  .heart {
+    color: red;
+  }
+
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+
+.floating-title-up {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .floating-title-bottom {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
