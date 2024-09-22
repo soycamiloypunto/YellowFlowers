@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>🌼 Yellow Flowers 🌼</title>
-  <h2 class="floating-title-up">¡Feliz día del AMOR y la amistad!</h2>
+  <title>🌼 Flores Amarillas 🌼</title>
+  <h2 class="floating-title-up">¡Aquí están tus flores amarillas, TE AMO!</h2>
   <h2 class="floating-title-bottom">@soycamiloypunto</h2>
 </head>
 
@@ -341,15 +341,15 @@
     };
 
     const icons = [];
-    const numIcons = 20; // Número de iconos (estrellas y corazones)
+    const numIcons = 20; // iconos (estrellas y corazones)
     const body = document.body;
 
-    // Crear iconos intercalando estrellas y corazones
+    // intercalando estrellas y corazones
     for (let i = 0; i < numIcons; i++) {
       const icon = document.createElement('div');
       icon.classList.add('icon');
-      icon.classList.add(i % 2 === 0 ? 'star' : 'heart'); // Alternar entre estrella y corazón
-      icon.textContent = i % 2 === 0 ? '★' : '❤'; // Asignar el símbolo
+      icon.classList.add(i % 2 === 0 ? 'star' : 'heart'); // cambio entre iconos
+      icon.textContent = i % 2 === 0 ? '★' : '❤'; // Asignar el emoticono
       icon.style.top = Math.random() * 100 + 'vh'; // Posición vertical aleatoria
       icon.style.left = Math.random() * 100 + 'vw'; // Posición horizontal aleatoria
       icon.style.animationDelay = Math.random() * 4 + 's'; // Retardo aleatorio para cada icono
