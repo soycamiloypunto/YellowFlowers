@@ -1941,3 +1941,15 @@ body {
         top: 30% !important; /* Move hidden message slightly up to avoid overlap */
     }
 }
+
+/* ADJUST FLOWER HEIGHT */
+.flowers {
+    transform: scale(0.85) translateY(-5vh) !important;
+}
+
+@media (max-width: 768px) {
+    .flowers {
+        /* Bajar las flores para que coincidan con la barra inferior (15vh) */
+        transform: scale(0.75) translateY(-10vh) !important; 
+    }
+}
