@@ -1884,3 +1884,34 @@ body.light-mode .hidden-message h2 {
 .menu-btn {
     justify-content: center !important;
 }
+
+/* Mobile viewport and placement fixes */
+body {
+    /* Use dynamic viewport height to prevent the UI from hiding behind mobile browser toolbars */
+    min-height: 100dvh !important; 
+    height: 100dvh !important;
+}
+
+.flowers {
+    margin-bottom: 15vh !important; /* Lift the flowers up universally */
+}
+
+.bottom-menu {
+    /* Lift the menu higher and respect iOS/Android safe areas */
+    bottom: max(60px, env(safe-area-inset-bottom, 40px)) !important;
+}
+
+@media (max-width: 768px) {
+    .flowers {
+        /* On mobile, lift flowers even higher so the screen doesn't look empty */
+        margin-bottom: 25vh !important;
+        transform: scale(0.8) !important;
+    }
+    
+    .bottom-menu {
+        /* Extra lift for mobile bottom toolbars (Safari/Chrome) */
+        bottom: 80px !important;
+        padding: 10px 20px !important;
+        gap: 20px !important;
+    }
+}
