@@ -1675,3 +1675,212 @@ body {
     color: #000;
     font-weight: bold;
 }
+/* New UI Styles */
+body {
+    transition: background-color 0.5s ease;
+}
+
+body.dark-mode {
+    background-color: #0b1021;
+}
+
+body.light-mode {
+    background-color: #87CEEB;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.celestial-body {
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    font-size: 5rem;
+    transition: all 0.5s ease;
+}
+
+.atmosphere {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    font-size: 3rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+}
+
+.hidden-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    border: 2px solid #FFD700;
+}
+
+.hidden-message.show {
+    opacity: 1;
+    visibility: visible;
+    top: 40%;
+}
+
+.hidden-message h2 {
+    color: #d2691e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+.bottom-menu {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    z-index: 1001;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: transform 0.2s;
+    outline: none;
+}
+
+.menu-btn:hover {
+    transform: scale(1.1);
+}
+
+.menu-btn .icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.menu-btn .text {
+    font-size: 0.7rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+body.light-mode .menu-btn .text {
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+body.light-mode .bottom-menu {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.flower__leaf {
+    background-image: linear-gradient(to top, #7CFC00, #FFD700) !important;
+}
+.flower__leaf--4 {
+    background-image: linear-gradient(to top, #32CD32, #FFD700) !important;
+}
+.flower__line {
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.2), transparent, rgba(255, 255, 255, 0.2)), linear-gradient(to top, transparent 10%, #006400, #228B22) !important;
+}
+.flower__leafs::after {
+    background-color: #ADFF2F !important;
+}
+.header-romantico {
+    display: none !important;
+}
+
+/* Liquid Glass Overrides */
+.bottom-menu {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    padding: 15px 30px !important;
+    border-radius: 50px !important;
+    gap: 30px !important;
+}
+
+body.light-mode .bottom-menu {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+}
+
+.hidden-message {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    border-radius: 25px !important;
+    padding: 30px 50px !important;
+}
+
+body.light-mode .hidden-message {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15) !important;
+}
+
+.hidden-message h2 {
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6) !important;
+}
+
+body.light-mode .hidden-message h2 {
+    color: #ff8c00 !important;
+    text-shadow: 0 2px 4px rgba(255,255,255,0.8) !important;
+}
+
+.menu-btn .icon {
+    font-size: 2rem !important;
+    margin: 0 !important;
+}
+
+.menu-btn:hover {
+    transform: scale(1.2) !important;
+}
+
+/* Fix Menu Icons Inheritance Issue */
+.menu-btn .icon {
+    position: static !important;
+    animation: none !important;
+    opacity: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.menu-btn {
+    justify-content: center !important;
+}

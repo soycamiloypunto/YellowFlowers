@@ -11,21 +11,26 @@
 
 <body class="not-loaded">
 
-  <div class="header-romantico">
-      <h2>¡Aquí están tus flores amarillas, TE AMO!</h2>
-
-      <button id="musicBtn">
-          🎵 Toca aquí para escuchar nuestra canción
-      </button>
+  <div id="sky" class="sky">
+    <div id="sun-moon" class="celestial-body"></div>
+    <div id="clouds-stars" class="atmosphere"></div>
   </div>
 
+  <div id="hiddenMessage" class="hidden-message">
+    <h2>¡Aquí están tus flores amarillas!</h2>
+  </div>
 
-<body class="not-loaded">
-
- <div class="icon-container">
-  <div class="icon star">★</div>
-  <div class="icon heart">❤</div>
-</div>
+  <div class="bottom-menu">
+    <button id="musicBtn" class="menu-btn">
+      <span class="icon"><svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></span>
+    </button>
+    <button id="msgBtn" class="menu-btn">
+      <span class="icon">💌</span>
+    </button>
+    <button id="themeBtn" class="menu-btn">
+      <span class="icon">🌙</span>
+    </button>
+  </div>
 
 
   
@@ -332,8 +337,6 @@
   </audio>
 
   <script>
-    
-  
     document.addEventListener('visibilitychange', function() {
       var audio = document.getElementById('myAudio');
       if (document.hidden) {
@@ -350,36 +353,59 @@
       }, 1000);
     };
 
-    const icons = [];
-    const numIcons = 20; // iconos (estrellas y corazones)
-    const body = document.body;
-
-    // intercalando estrellas y corazones
-    for (let i = 0; i < numIcons; i++) {
-      const icon = document.createElement('div');
-      icon.classList.add('icon');
-      icon.classList.add(i % 2 === 0 ? 'star' : 'heart'); // cambio entre iconos
-      icon.textContent = i % 2 === 0 ? '★' : '❤'; // Asignar el emoticono
-      icon.style.top = Math.random() * 100 + 'vh'; // Posición vertical aleatoria
-      icon.style.left = Math.random() * 100 + 'vw'; // Posición horizontal aleatoria
-      icon.style.animationDelay = Math.random() * 4 + 's'; // Retardo aleatorio para cada icono
-      body.appendChild(icon);
-      icons.push(icon);
-    }
-
     const audio = document.getElementById('myAudio');
-const btn = document.getElementById('musicBtn');
+    const musicBtn = document.getElementById('musicBtn');
+    const msgBtn = document.getElementById('msgBtn');
+    const themeBtn = document.getElementById('themeBtn');
+    const hiddenMessage = document.getElementById('hiddenMessage');
+    const celestialBody = document.getElementById('sun-moon');
+    const atmosphere = document.getElementById('clouds-stars');
 
-btn.addEventListener('click', async () => {
-  if (audio.paused) {
-    await audio.play();
-    btn.textContent = '🔊';
-  } else {
-    audio.pause();
-    btn.textContent = '🔇';
-  }
-});
+    // Music toggle
+    const svgPlay = '<svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+    const svgMute = '<svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+    
+    musicBtn.addEventListener('click', async () => {
+      if (audio.paused) {
+        await audio.play();
+        musicBtn.querySelector('.icon').innerHTML = svgPlay;
+      } else {
+        audio.pause();
+        musicBtn.querySelector('.icon').innerHTML = svgMute;
+      }
+    });
 
+    // Message toggle
+    msgBtn.addEventListener('click', () => {
+      hiddenMessage.classList.toggle('show');
+    });
+
+    // Theme toggle
+    const toggleTheme = (isDark) => {
+      if (isDark) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        themeBtn.querySelector('.icon').textContent = '☀️';
+        celestialBody.textContent = '🌙';
+        atmosphere.innerHTML = '✨ ✨ ✨<br>✨ ✨';
+      } else {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+        themeBtn.querySelector('.icon').textContent = '🌙';
+        celestialBody.textContent = '☀️';
+        atmosphere.innerHTML = '☁️ ☁️<br>☁️';
+      }
+    };
+
+    // Initialize theme based on user preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentThemeDark = prefersDark;
+    toggleTheme(currentThemeDark);
+
+    themeBtn.addEventListener('click', () => {
+      currentThemeDark = !currentThemeDark;
+      toggleTheme(currentThemeDark);
+    });
   </script>
 </body>
 
