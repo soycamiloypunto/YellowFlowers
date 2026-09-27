@@ -1915,3 +1915,29 @@ body {
         gap: 20px !important;
     }
 }
+
+/* AGGRESSIVE MOBILE FIXES FOR PLACEMENT */
+.bottom-menu {
+    bottom: 120px !important; /* Force the menu much higher */
+    z-index: 9999 !important; /* Ensure it's on top of everything */
+}
+
+.flowers {
+    /* Since .flowers has height 0 and is flex-aligned to bottom, 
+       translateY is the most reliable way to pull it up */
+    transform: scale(0.8) translateY(-20vh) !important;
+}
+
+@media (max-width: 768px) {
+    .bottom-menu {
+        bottom: 15vh !important; /* Extremely safe distance from bottom */
+    }
+    
+    .flowers {
+        transform: scale(0.7) translateY(-30vh) !important; /* Pull up 30% of screen height */
+    }
+    
+    .hidden-message {
+        top: 30% !important; /* Move hidden message slightly up to avoid overlap */
+    }
+}
