@@ -359,6 +359,20 @@
       body.appendChild(icon);
       icons.push(icon);
     }
+
+    const audio = document.getElementById('myAudio');
+const btn = document.getElementById('musicBtn');
+
+btn.addEventListener('click', async () => {
+  if (audio.paused) {
+    await audio.play();
+    btn.textContent = '🔊';
+  } else {
+    audio.pause();
+    btn.textContent = '🔇';
+  }
+});
+
   </script>
 </body>
 
